@@ -1,0 +1,108 @@
+use bd1
+
+if OBJECT_ID('Agenda') is not null
+drop table Agenda
+
+create table Agenda(
+Apellido varchar(30),
+Nombre varchar(30),
+Domicilio varchar(100),
+Telefono varchar(11)
+)
+
+exec sp_tables Agenda
+
+exec sp_Columns Agenda
+
+Insert into Agenda (Apellido, Nombre, Domicilio, Telefono) values ('Moreno', 'Alberto', 'bla direccion', '2587124')
+
+Insert into Agenda (Apellido, Nombre, Domicilio, Telefono) values ('Lopez','Juan', 'dir 2', '2555887455')
+
+select * from Agenda
+
+drop table Agenda
+
+select Nombre,Apellido from Agenda 
+
+create table Peliculas(
+
+Titulo varchar(30),
+Autor varchar(30),
+Duracion int,
+Cantidad int
+)
+
+
+insert into Peliculas (Titulo, Autor, Duracion, Cantidad) values ('Dracula', 'Del Toro', 180, 5)
+insert into Peliculas (Titulo, Autor, Duracion, Cantidad) values ('casa fantasmas', 'Del la peña', 60, 5)
+insert into Peliculas (Titulo, Autor, Duracion, Cantidad) values ('el hombre lobo', 'warner brothers', 120, 5)
+insert into Peliculas (Titulo, Autor, Duracion, Cantidad) values ('el hombre murcielago', 'warner brothers', 120, 5)
+
+select Titulo, Autor from Peliculas
+select Titulo, Duracion from Peliculas
+select Titulo, Cantidad from Peliculas
+
+select * from Peliculas
+
+select Titulo, Autor from Peliculas where Duracion=120
+
+-- selecciona todo de tabla pelicuas donde el campo autor ser diferente de warner brothers
+select * from Peliculas where Autor <> 'warner brothers'
+
+delete from Peliculas Where Duracion= 180
+
+select * from peliculas
+
+update Peliculas set Autor='wb' where Titulo='el hombre murcielago'
+
+
+ create table medicamentos(
+  codigo int not null,
+  nombre varchar(20) not null,
+  laboratorio varchar(20),
+  precio float,
+  cantidad integer not null
+ );
+
+ insert into medicamentos (codigo,nombre,laboratorio,precio,cantidad)
+  values(1,'Sertal gotas',null,null,100); 
+ insert into medicamentos (codigo,nombre,laboratorio,precio,cantidad)
+  values(2,'Sertal compuesto',null,8.90,150);
+ insert into medicamentos (codigo,nombre,laboratorio,precio,cantidad)
+  values(3,'Buscapina','Roche',null,200);
+
+
+  select * from medicamentos
+
+  insert into medicamentos (codigo,nombre, laboratorio,precio,cantidad)
+  values(4,'Bayaspirina','',0,150);
+
+  insert into medicamentos (codigo,nombre,laboratorio,precio,cantidad)
+  values(0,'','Bayer',15.60,0);
+
+  /*Recupere los registros que contengan valor "null" en el campo "laboratorio", luego los que 
+tengan una cadena vacía en el mismo campo. Note que el resultado es diferente.*/
+  select * from medicamentos where laboratorio is null
+  select * from medicamentos where laboratorio= ''
+
+  /*Recupere los registros que contengan valor "null" en el campo "precio", luego los que tengan el 
+valor 0 en el mismo campo. Note que el resultado es distinto.*/
+  select * from medicamentos where precio is null
+  select * from medicamentos where precio=0
+
+  /*Recupere los registros cuyo laboratorio no contenga una cadena vacía, luego los que sean 
+distintos de "null".
+Note que la salida de la primera sentencia no muestra los registros con cadenas vacías y tampoco los 
+que tienen valor nulo; el resultado de la segunda sentencia muestra los registros con valor para el 
+campo laboratorio (incluso cadena vacía).*/
+
+select * from medicamentos where laboratorio <>''
+select * from medicamentos where laboratorio is not  null
+
+/*Recupere los registros cuyo precio sea distinto de 0, luego los que sean distintos de "null":
+Note que la salida de la primera sentencia no muestra los registros con valor 0 y tampoco los que 
+tienen valor nulo; el resultado de la segunda sentencia muestra los registros con valor para el 
+campo precio (incluso el valor 0).*/
+
+select * from medicamentos where precio <> 0
+select * from medicamentos where precio is not null

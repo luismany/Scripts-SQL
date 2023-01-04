@@ -1,0 +1,14 @@
+//crea una base de datos
+create database bd1
+
+//crea una tabla
+
+create table Usuario(
+Nombre varchar(30),
+clave varchar(10)
+)
+
+exec sp_columns Usuario
+
+//elimina una tabla
+drop table 

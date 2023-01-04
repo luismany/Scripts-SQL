@@ -1,0 +1,61 @@
+create table Libro(
+Codigo int identity(1,1),
+Titulo varchar(30),
+Autor varchar(30),
+Editorial varchar(30),
+Precio float,
+--default para asignar valores pordefault en campos not null
+Cantidad int not null default 0
+)
+
+--Asignando un valor  por default con la palabra reservada default a un campo 
+insert into Libro values ('La Iliada', 'Homero', 'NIcaragua LInda', 20.85, default)
+insert into Libro values ('La bella y la bestia', 'desconocido', 'NIcaragua LInda', 10.85, 5)
+insert into Libro values ('La Odisea', 'Homero', 'NIcaragua LInda', 15.85, 2)
+
+select * from Libro
+/* truncate table + nombre ede la tabla, elimina todoslos  registros de una tabla pero a diferencia
+del delete from nombre+nombre de la tabla el comando truncate reinicia el conteo de los Id a 1
+mientras que el delete una vez que se ingresa un nuevo registro continua desde el ultimo Id eliminado.*/
+truncate table Libro
+
+delete from Libro
+
+drop table Libro
+
+-------------------------------------------------------------------------------------------------
+
+create table Libro(
+
+Codigo int identity(1,1),
+Titulo varchar(30),
+Autor varchar(30),
+Editorial varchar(30),
+Precio decimal(6,2),
+Cantidad int default 0
+)
+
+select * from Libro
+
+insert into Libro (Titulo,Autor,Editorial,Precio) values ('La Iliada', 'Homero', 'El triunfo',15.25)
+insert into Libro  values ('La Mancha', 'Homero', 'El loco',10.25, 5)
+insert into Libro (Titulo,Autor,Editorial,Precio,Cantidad) values ('La Iliada', 'Homero', 'El triunfo',15.25, 10)
+
+/*ESta consulta selecciona titulo,Precio y cantidad de la tabla libros
+y multiplica el precio*cantidad de las 2 tablas y el resultado lo muestra
+en otra tabla*/
+select  Titulo,Precio,Cantidad,
+Precio*Cantidad from Libro
+
+/* esta consulta muestra el titulo y precio y una columna calculada con el precio con un descuento
+del 10%*/
+select Titulo,Precio, 
+precio-(precio*0.1) from Libro
+
+-- este update actualiza la columna precio con un descuento del 10%
+update Libro set Precio=Precio-(precio*0.1) 
+
+select * from Libro
+
+--esta consulta concatena varias columnas y la salida es una sola columna con todos los datos solicitados. 
+select Titulo+'-'+Autor+'-'+Editorial from Libro
