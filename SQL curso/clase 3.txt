@@ -43,7 +43,7 @@ insert into Libro (Titulo,Autor,Editorial,Precio,Cantidad) values ('La Iliada', 
 
 /*ESta consulta selecciona titulo,Precio y cantidad de la tabla libros
 y multiplica el precio*cantidad de las 2 tablas y el resultado lo muestra
-en otra tabla*/
+en otra columna*/
 select  Titulo,Precio,Cantidad,
 Precio*Cantidad from Libro
 
