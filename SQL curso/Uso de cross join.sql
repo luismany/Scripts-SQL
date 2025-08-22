@@ -1,17 +1,17 @@
 /*Uso de cross join
 Las combinaciones cruzadas (cross join) muestran todas las combinaciones de todos
- los registros de las tablas combinadas. Para este tipo de join no se incluye una condici髇 de enlace.
- Se genera el producto cartesiano en el que el n鷐ero de filas del resultado es igual al n鷐ero de registros
- de la primera tabla multiplicado por el n鷐ero de registros de la segunda tabla, es decir, si hay 5 registros
+ los registros de las tablas combinadas. Para este tipo de join no se incluye una condici贸n de enlace.
+ Se genera el producto cartesiano en el que el n煤mero de filas del resultado es igual al n煤mero de registros
+ de la primera tabla multiplicado por el n煤mero de registros de la segunda tabla, es decir, si hay 5 registros
  en una tabla y 6 en la otra, retorna 30 filas.
-La sintaxis b醩ica es 閟ta:
+La sintaxis b谩sica es 茅sta:
 
  select CAMPOS
   from TABLA1
   cross join TABLA2;
-Una agencia matrimonial almacena la informaci髇 de sus clientes de sexo femenino en una tabla 
+Una agencia matrimonial almacena la informaci贸n de sus clientes de sexo femenino en una tabla 
 llamada "mujeres" y en otra la de sus clientes de sexo masculino llamada "varones".
-1- Elimine las tablas si existen y cr閑las:*/
+1- Elimine las tablas si existen y cr茅elas:*/
  if object_id('mujeres') is not null
   drop table mujeres;
  if object_id('varones') is not null
@@ -39,14 +39,14 @@ llamada "mujeres" y en otra la de sus clientes de sexo masculino llamada "varone
 
  select * from mujeres
  select * from varones
-/*3- La agencia necesita la combinaci髇 de todas las personas de sexo femenino con las de sexo 
+/*3- La agencia necesita la combinaci贸n de todas las personas de sexo femenino con las de sexo 
 masculino. Use un "cross join" (12 registros)*/
 
 select m.nombre as mujeres, v.nombre as varones
 from mujeres as m 
 cross join varones as v
 
-/*4- Realice la misma combinaci髇 pero considerando solamente las personas mayores de 40 a駉s (6 
+/*4- Realice la misma combinaci贸n pero considerando solamente las personas mayores de 40 a帽os (6 
 registros)*/
 
 select m.nombre as mujeres, v.nombre as varones
@@ -54,7 +54,7 @@ from mujeres as m
 cross join varones as v
 where m.edad> 40 and v.edad> 40
 
-/*5- Forme las parejas pero teniendo en cuenta que no tengan una diferencia superior a 10 a駉s (8 
+/*5- Forme las parejas pero teniendo en cuenta que no tengan una diferencia superior a 10 a帽os (8 
 registros)*/
 
 select m.nombre as mujeres, v.nombre as varones
@@ -71,7 +71,7 @@ where m.edad-v.edad < 10 and v.edad-m.edad <10
 ------------------------------------------------------------------------------------------------
 
 /*Una empresa de seguridad almacena los datos de sus guardias de seguridad en una tabla llamada 
-"guardias". tambi閚 almacena los distintos sitios que solicitaron sus servicios en una tabla llamada 
+"guardias". tambi茅n almacena los distintos sitios que solicitaron sus servicios en una tabla llamada 
 "tareas".
 1- Elimine las tablas "guardias" y "tareas" si existen:*/
  if object_id('guardias') is not null
@@ -128,8 +128,8 @@ where g.sexo='f' and t.descripcion='vigilancia interior' or g.sexo='m' and t.des
 
 ---------------------------------------------------------------------------------------
 --Autocombinacion
-/*Una agencia matrimonial almacena la informaci髇 de sus clientes en una tabla llamada "clientes".
-1- Elimine la tabla si existe y cr閑la:*/
+/*Una agencia matrimonial almacena la informaci贸n de sus clientes en una tabla llamada "clientes".
+1- Elimine la tabla si existe y cr茅ela:*/
  if object_id('clientes') is not null
   drop table clientes;
 
@@ -151,7 +151,7 @@ where g.sexo='f' and t.descripcion='vigilancia interior' or g.sexo='m' and t.des
  insert into clientes values('Juan Garcia','m',50,'Peru 333');
 
  select * from clientes
-/*3- La agencia necesita la combinaci髇 de todas las personas de sexo femenino con las de sexo 
+/*3- La agencia necesita la combinaci贸n de todas las personas de sexo femenino con las de sexo 
 masculino. Use un  "cross join" (12 registros)*/
 
 select c1.nombre, c2.nombre 
@@ -167,8 +167,8 @@ join clientes as c2
 on c1.sexo<>c2.sexo
 where c1.sexo='f' and c2.sexo='m'
 
-/*5- Realice la misma autocombinaci髇 que el punto 3 pero agregue la condici髇 que las parejas no 
-tengan una diferencia superior a 5 a駉s (5 registros)*/
+/*5- Realice la misma autocombinaci贸n que el punto 3 pero agregue la condici贸n que las parejas no 
+tengan una diferencia superior a 5 a帽os (5 registros)*/
 
 select c1.nombre, c2.nombre, c1.edad, c2.edad
 from clientes as c1
