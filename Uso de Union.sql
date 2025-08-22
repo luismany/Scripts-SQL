@@ -43,9 +43,9 @@
  select * from clientes
  select * from  empleados
 
-/*4- El supermercado quiere enviar una tarjeta de salutaci髇 a todos los proveedores, clientes y 
+/*4- El supermercado quiere enviar una tarjeta de salutaci贸n a todos los proveedores, clientes y 
 empleados y necesita el nombre y domicilio de todos ellos. Emplee el operador "union" para obtener 
-dicha informaci髇 de las tres tablas.*/
+dicha informaci贸n de las tres tablas.*/
 
 select nombre, domicilio from proveedores
 union
@@ -66,7 +66,7 @@ order by Categoria
 
  --Agregar y eliminar campos ( alter table - add - drop)
 
- --1- Elimine la tabla, si existe, cr閑la y cargue un registro:
+ --1- Elimine la tabla, si existe, cr茅ela y cargue un registro:
  if object_id('empleados') is not null
   drop table empleados;
 
@@ -105,7 +105,7 @@ valor por defecto.*/
 alter table empleados
 drop column sueldo
 
---9- Verifique la eliminaci髇:
+--9- Verifique la eliminaci贸n:
  exec sp_columns empleados;
 
 /*10- Intente eliminar el campo "documento".
@@ -115,11 +115,11 @@ no lo permite.*/
 alter table empleados
 drop column codigo, fechaingreso
 
---12- Verifique la eliminaci髇 de los campos:
+--12- Verifique la eliminaci贸n de los campos:
  exec sp_columns empleados;
  ----------------------------------------------------------------------------------------------
  -- Alterar campos (alter table - alter)
- --1- Elimine la tabla, si existe y cr閑la:
+ --1- Elimine la tabla, si existe y cr茅ela:
  if object_id('empleados') is not null
   drop table empleados;
 
@@ -138,7 +138,7 @@ drop column codigo, fechaingreso
 alter table empleados
 alter column nombre varchar(50)
 
---3- Controle la modificaci髇:
+--3- Controle la modificaci贸n:
  sp_columns empleados;
 
 --4- Modifique el campo "sueldo" para que no admita valores nulos.
@@ -152,7 +152,7 @@ alter column documento char(8)
 --5- Intente modificar el tipo de datos del campo "legajo" a "tinyint":
  alter table empleados
   alter column legajo tinyint not null;
---No se puede porque tiene una restricci髇.
+--No se puede porque tiene una restricci贸n.
 
 --6- Ingrese algunos registros, uno con "nombre" nulo:
  insert into empleados values(1,'22222222','Juan Perez','Colon 123','Cordoba',500,3);
@@ -163,7 +163,7 @@ alter column documento char(8)
   alter column nombre varchar(30) not null;
 --No se puede porque hay registros con ese valor.
 
---8- Elimine el registro con "nombre" nulo y realice la modificaci髇 del punto 7:
+--8- Elimine el registro con "nombre" nulo y realice la modificaci贸n del punto 7:
  delete from empleados where nombre is null;
  alter table empleados
   alter column nombre varchar(30) not null;
@@ -176,7 +176,7 @@ alter column ciudad varchar(10)
  insert into empleados values(3,'33333333','Juan Perez','Sarmiento 856',default,500,4);
 --No se puede porque el campo acepta 10 caracteres y  el valor por defecto tiene 12 caracteres.
 
---11- Modifique el campo "ciudad" sin que afecte la restricci髇 d醤dole una longitud de 15 caracteres.
+--11- Modifique el campo "ciudad" sin que afecte la restricci贸n d谩ndole una longitud de 15 caracteres.
 alter table empleados
 alter column ciudad varchar(15)
 
