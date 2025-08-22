@@ -39,7 +39,7 @@ select titulo, autor, nombre from libros
 join editoriales
 on editorialId= editoriales.Id
 
- -- Mostramos el c骴igo del libro, t韙ulo, autor, nombre de la
+ -- Mostramos el c贸digo del libro, t铆tulo, autor, nombre de la
  -- editorial y el precio realizando un join y empleando alias:
  select l.Id, titulo, autor, nombre, precio from libros as l
  join editoriales as e
@@ -52,15 +52,15 @@ join editoriales as e
 on editorialId=e.Id
 where e.nombre='siglo XXI'
 
--- Obtenemos t韙ulo, autor y nombre de la editorial, 
--- esta vez ordenados por t韙ulo:
+-- Obtenemos t铆tulo, autor y nombre de la editorial, 
+-- esta vez ordenados por t铆tulo:
 select l.titulo, autor, nombre from libros as l
 join editoriales as e
 on editorialId=e.Id
 order by l.titulo
 
 -------------------------------------------------------------------------------------------------------
-/*Una empresa tiene registrados sus clientes en una tabla llamada "clientes", tambi閚 tiene una tabla 
+/*Una empresa tiene registrados sus clientes en una tabla llamada "clientes", tambi茅n tiene una tabla 
 "provincias" donde registra los nombres de las provincias.
 1- Elimine las tablas "clientes" y "provincias", si existen:*/
   if (object_id('clientes')) is not null
@@ -68,7 +68,7 @@ order by l.titulo
   if (object_id('provincias')) is not null
    drop table provincias;
 
---2- Cr閑las con las siguientes estructuras:
+--2- Cr茅elas con las siguientes estructuras:
  create table clientes (
   codigo int identity,
   nombre varchar(30),
@@ -89,7 +89,7 @@ order by l.titulo
  insert into provincias (nombre) values('Santa Fe');
  insert into provincias (nombre) values('Corrientes');
 
- insert into clientes values ('Lopez Marcos','Colon 111','C髍doba',1);
+ insert into clientes values ('Lopez Marcos','Colon 111','C贸rdoba',1);
  insert into clientes values ('Perez Ana','San Martin 222','Cruz del Eje',1);
  insert into clientes values ('Garcia Juan','Rivadavia 333','Villa Maria',1);
  insert into clientes values ('Perez Luis','Sarmiento 444','Rosario',2);
@@ -106,7 +106,7 @@ join provincias as p
 on codigoprovincia=p.codigo
 
 
---5- Obtenga la misma informaci髇 anterior pero ordenada por nombre de provincia.
+--5- Obtenga la misma informaci贸n anterior pero ordenada por nombre de provincia.
 select c.nombre, domicilio, ciudad, p.nombre from clientes as c
 join provincias as p
 on codigoprovincia=p.codigo
@@ -121,7 +121,7 @@ where p.nombre='santa fe'
 
 ---------------------------------------------------------------------------------------
 
-/*Un club dicta clases de distintos deportes. Almacena la informaci髇 en una tabla llamada 
+/*Un club dicta clases de distintos deportes. Almacena la informaci贸n en una tabla llamada 
 "inscriptos" que incluye el documento, el nombre, el deporte y si la matricula esta paga o no y una 
 tabla llamada "inasistencias" que incluye el documento, el deporte y la fecha de la inasistencia.
 1- Elimine las tablas si existen y cree las tablas:*/
@@ -163,7 +163,7 @@ tabla llamada "inasistencias" que incluye el documento, el deporte y la fecha de
 
  select * from inasistencias
 /*3- Muestre el nombre, el deporte y las fechas de inasistencias, ordenado por nombre y deporte.
-Note que la condici髇 es compuesta porque para identificar los registros de la tabla "inasistencias" 
+Note que la condici贸n es compuesta porque para identificar los registros de la tabla "inasistencias" 
 necesitamos ambos campos.*/
 
  select nombre,insc.deporte,ina.fecha
@@ -184,7 +184,7 @@ select nombre,insc.deporte, ina.fecha
   where insc.documento='22222222';
 
 /*5- Obtenga el nombre, deporte y las fechas de inasistencias de todos los inscriptos que pagaron la 
-matr韈ula(4 registros)*/
+matr铆cula(4 registros)*/
 
 select nombre,insc.deporte, ina.fecha
   from inscriptos as insc
