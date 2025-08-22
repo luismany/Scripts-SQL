@@ -4,7 +4,7 @@
  if object_id('clientes') is not null
   drop table clientes;
 
-/*2- Créela con la siguiente estructura:*/
+/*2- CrÃ©ela con la siguiente estructura:*/
  create table clientes (
   codigo int identity,
   nombre varchar(30) not null,
@@ -73,7 +73,7 @@ group by provincia
  if object_id('empleados') is not null
   drop table empleados;
 
---2- Créela con la siguiente estructura:
+--2- CrÃ©ela con la siguiente estructura:
  create table empleados (
   documento varchar(8) not null,
   nombre varchar(30),
@@ -104,25 +104,25 @@ group by provincia
 --4- Muestre los 5 primeros registros (5 registros)
 select top 5 * from empleados
 
---5- Muestre nombre y seccion de los 4 primeros registros ordenados por sección (4 registros)
+--5- Muestre nombre y seccion de los 4 primeros registros ordenados por secciÃ³n (4 registros)
 
 select top 4 nombre, seccion from empleados
 order by seccion 
 
 /*6- Realice la misma consulta anterior pero incluya todos los registros que tengan el mismo valor en 
-"seccion" que el último (8 registros)*/
+"seccion" que el Ãºltimo (8 registros)*/
 
 
 select top 4 with ties nombre, seccion from empleados
 order by seccion 
 
 /*7- Muestre nombre, estado civil y seccion de los primeros 4 empleados ordenados por estado civil y 
-sección (4 registros)*/
+secciÃ³n (4 registros)*/
 
 select top 4 nombre,estadocivil, seccion from empleados
 order by estadocivil, seccion
 
-/*8- Realice la misma consulta anterior pero incluya todos los valores iguales al último registro 
+/*8- Realice la misma consulta anterior pero incluya todos los valores iguales al Ãºltimo registro 
 retornado (5 registros)*/
 select top 4 with ties  nombre,estadocivil, seccion from empleados
 order by estadocivil, seccion
