@@ -86,11 +86,11 @@ select * from empleados
 
 select count(*) from empleados
 
-/*5- Muestre la cantidad de empleados con sueldo no nulo de la sección "Secretaria" (2 empleados)*/
+/*5- Muestre la cantidad de empleados con sueldo no nulo de la secciÃ³n "Secretaria" (2 empleados)*/
 
 select count(sueldo)from empleados where seccion='secretaria'
 
-/*6- Muestre el sueldo más alto y el más bajo colocando un alias (5000 y 2000)*/
+/*6- Muestre el sueldo mÃ¡s alto y el mÃ¡s bajo colocando un alias (5000 y 2000)*/
 
 select max(sueldo) as 'sueldo maximo', min(sueldo) as 'sueldo minimo' from empleados
 
@@ -103,7 +103,7 @@ tenido en cuenta)*/
 
 select avg(sueldo) from empleados
 
-/*9- Muestre el promedio de sueldos de los empleados de la sección "Secretaría" (2100)*/
+/*9- Muestre el promedio de sueldos de los empleados de la secciÃ³n "SecretarÃ­a" (2100)*/
 
 select avg(sueldo) from empleados where seccion='secretaria'
 
@@ -153,13 +153,13 @@ de las personas que visitan o compran en su stand para luego enviarle publicidad
 
   select * from visitantes
 
-/*4- Queremos saber la cantidad de visitantes de cada ciudad utilizando la cláusula "group by" (4 filas devueltas)*/
+/*4- Queremos saber la cantidad de visitantes de cada ciudad utilizando la clÃ¡usula "group by" (4 filas devueltas)*/
 
 select ciudad, count(*)
 from visitantes
 group by ciudad
  
-/*5- Queremos la cantidad visitantes con teléfono no nulo, de cada ciudad (4 filas devueltas)*/
+/*5- Queremos la cantidad visitantes con telÃ©fono no nulo, de cada ciudad (4 filas devueltas)*/
   select * from visitantes
 
   select ciudad, count(telefono) as 'con telefono' 
@@ -174,7 +174,7 @@ group by ciudad
   from visitantes
   group by sexo
 
-/*7- Se necesita saber el máximo y mínimo valor de compra agrupados por sexo y ciudad (6 filas)*/
+/*7- Se necesita saber el mÃ¡ximo y mÃ­nimo valor de compra agrupados por sexo y ciudad (6 filas)*/
 
   select * from visitantes
 
